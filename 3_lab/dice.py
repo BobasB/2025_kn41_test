@@ -7,6 +7,7 @@ class Dice:
     def roll(self) -> int:
         return random.randint(1, self.faces)
 
+
 if __name__ == "__main__":
     dice = Dice(6)
     result = dice.roll()
