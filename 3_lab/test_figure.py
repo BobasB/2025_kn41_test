@@ -42,7 +42,11 @@ class TestFigure(unittest.TestCase):
                         "Властивість get_figure_type повертає непривильну фігуру!")
 
     def test_figure_length(self):
-        """Перевіряємо, що властивість get_figure_length повертає правильну довжину"""
+        """Перевіряємо, що властивість get_figure_length повертає правильну довжину
+        
+        УВАГА: Цей тест провалюється через навмисну помилку в app.py!
+        Це демонструє як unittest виявляє помилки в коді.
+        """
         print(f"\nТестуємо вивід довжини, має бути: {self.length} == {self.obj.get_figure_length}")
         self.assertEqual(self.length, self.obj.get_figure_length, 
                         "Властивість get_figure_length повертає непривильну довжину!")

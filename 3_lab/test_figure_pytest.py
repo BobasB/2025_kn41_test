@@ -30,9 +30,13 @@ class TestFigureWithPytest:
         assert figure.get_figure_type == "трикутник"
     
     def test_figure_length_property(self):
-        """Тест властивості get_figure_length (має провалитися через помилку!)"""
+        """Тест властивості get_figure_length
+        
+        УВАГА: Цей тест провалюється через навмисну помилку в app.py!
+        Це демонструє як PyTest виявляє помилки в коді.
+        """
         figure = Figure("прямокутник", 7)
-        # Цей тест провалиться, бо в app.py є помилка
+        # Цей тест провалиться, бо в app.py є навмисна помилка для демонстрації
         assert figure.get_figure_length == 7, "get_figure_length має повертати довжину, а не тип!"
     
     @pytest.mark.parametrize("figure_type,length", [
