@@ -12,14 +12,17 @@
 
 ### 2. Юніт тести (unittest)
 - **app.py** - основний клас Figure з навмисною помилкою в методі get_figure_length
-- **test_figure.py** - юніт тести для класу Figure
+- **test_figure.py** - юніт тести для класу Figure (8 тестів)
+- **dice.py** - клас Dice для роботи з кубиками
+- **test_dice.py** - юніт тести для класу Dice (3 тести)
 
 ### 3. PyTest тести
-- **test_figure_pytest.py** - тести з використанням бібліотеки PyTest
-- **test_dice.py** - тести для класу Dice
+- **test_figure_pytest.py** - тести для класу Figure з використанням PyTest (21 тест)
+- **test_dice_pytest.py** - тести для класу Dice з використанням PyTest (14 тестів)
 
-### 4. Інші файли
-- **dice.py** - клас Dice для демонстрації роботи з кубиками
+### 4. Документація
+- **README.md** - цей файл з інструкціями
+- **REPORT.md** - детальний звіт про виконання лабораторної роботи
 - **pyproject.toml** - конфігурація проекту з залежностями
 - **poetry.lock** - залежності проекту
 
@@ -36,40 +39,63 @@ python assert_name.py
 
 ### Unittest тести
 ```bash
-# Запуск через виконання файлу
-python test_figure.py
-
-# Запуск через unittest модуль
-python -m unittest test_figure.py
-
-# Запуск з детальним виводом
+# Запуск окремих тестових файлів
 python -m unittest test_figure.py -v
+python -m unittest test_dice.py -v
+
+# Запуск всіх unittest тестів
+python -m unittest discover -v
 ```
 
 ### PyTest тести
 ```bash
 # Запуск всіх тестів
-poetry run pytest
+python -m pytest
 
 # Запуск з детальним виводом
-poetry run pytest -v
+python -m pytest -v
 
 # Запуск конкретного файлу
-poetry run pytest test_figure_pytest.py -v
+python -m pytest test_figure_pytest.py -v
+python -m pytest test_dice_pytest.py -v
+
+# Запуск з виводом print
+python -m pytest -v -s
 ```
 
 ## Очікувані результати
 
 ### Assert тести
-При запуску assert_figure.py ви побачите результати різних тестових сценаріїв з помилками та успішними створеннями фігур.
+При запуску assert_figure.py та assert_name.py ви побачите результати різних тестових сценаріїв з помилками та успішними створеннями об'єктів.
 
 ### Unittest тести
-При запуску test_figure.py деякі тести провалюються через навмисну помилку в app.py (метод get_figure_length повертає тип замість довжини).
+- **test_dice.py**: Всі 3 тести проходять успішно ✅
+- **test_figure.py**: 7 з 8 тестів проходять, 1 провалюється через навмисну помилку в app.py ❌
 
 ### PyTest тести
-При запуску test_figure_pytest.py аналогічно провалюється тест на перевірку довжини через помилку в app.py.
+- **test_dice_pytest.py**: Всі 14 тестів проходять успішно ✅
+- **test_figure_pytest.py**: 20 з 21 тесту проходять, 1 провалюється через навмисну помилку в app.py ❌
+
+**Загальна статистика PyTest**: 44 passed, 2 failed, 1 warning
 
 ## Примітки
-- Файл app.py містить навмисну помилку для демонстрації роботи тестів
+- Файл app.py містить навмисну помилку (метод get_figure_length повертає type замість length) для демонстрації роботи тестів
 - __pycache__ та .pytest_cache додані до .gitignore
-- Використовується Poetry для управління залежностями
+- Використовується Poetry для управління залежностями (або pip якщо Poetry недоступний)
+
+## Виконані завдання
+
+✅ Створено приклади використання assert  
+✅ Створено класи з валідацією даних (Figure, Name)  
+✅ Додано власне ім'я та додатковий параметр (хоббі) до класу Name  
+✅ Створено юніт тести з використанням unittest  
+✅ Виправлено тест в test_dice.py (було self.assertTrue(False))  
+✅ Додано __pycache__ до .gitignore  
+✅ Розширено функціонал класу Figure (методи calculate_perimeter, calculate_area)  
+✅ Встановлено PyTest  
+✅ Створено тести з використанням PyTest  
+✅ Використано параметризацію (@pytest.mark.parametrize) та фікстури (@pytest.fixture)  
+✅ Створено детальний звіт про виконання роботи (REPORT.md)  
+
+**Всі завдання лабораторної роботи №3 виконано успішно!** ✨
+
