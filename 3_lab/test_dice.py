@@ -20,7 +20,7 @@ class TestDice(unittest.TestCase):
     def test_initialization_of_dice_object(self):
         """Перевіряємо, що об'єкт Dice ініціалізується правильно з різною кількістю граней."""
         print("Запуск test_initialization_of_dice_object")
-        self.assertTrue(False) # Навмисна помилка для демонстрації роботи тесту
+        # Виправлена навмисна помилка - тепер тест проходить
         self.assertEqual(self.dice.faces, self.dice_faces)
         self.assertIn(self.dice.roll(), range(1, self.dice_faces + 1))
         self.assertIsInstance(self.dice.roll(), int)
